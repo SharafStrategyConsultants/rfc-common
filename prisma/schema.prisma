@@ -29,10 +29,10 @@ model Product {
 
 model meta {
   productMetaID Int       @id @default(autoincrement())
-  productId     Int
+  productId     Int?
   imageUrl      String
   isDeleted     Boolean   @default(false)
-  product       Product   @relation(fields: [productId], references: [productId])
+  product       Product?   @relation(fields: [productId], references: [productId])
   categoryId    Int?
   catogory      Category?  @relation(fields: [categoryId], references: [categoryId])
   createdAt     DateTime  @default(now())
