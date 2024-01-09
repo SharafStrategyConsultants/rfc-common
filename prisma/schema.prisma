@@ -28,7 +28,7 @@ model Product {
 }
 
 model meta {
-  productMetaID Int       @id @default(autoincrement())
+  metaId Int       @id @default(autoincrement())
   productId     Int?
   imageUrl      String
   isDeleted     Boolean   @default(false)
