@@ -21,7 +21,7 @@ model Product {
   tag         String
   sku         Int
   isDeleted   Boolean   @default(false)
-  metas       meta[]
+  meta       meta[]
   category    Category  @relation(fields: [categoryId], references: [categoryId])
   createdAt   DateTime  @default(now())
   updatedAt   DateTime? @updatedAt
