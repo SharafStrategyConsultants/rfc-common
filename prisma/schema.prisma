@@ -21,22 +21,22 @@ model Product {
   tag         String
   sku         Int
   isDeleted   Boolean   @default(false)
-  meta       meta[]
+  meta        meta[]
   category    Category  @relation(fields: [categoryId], references: [categoryId])
   createdAt   DateTime  @default(now())
   updatedAt   DateTime? @updatedAt
 }
 
 model meta {
-  metaId Int       @id @default(autoincrement())
-  productId     Int?
-  imageUrl      String
-  isDeleted     Boolean   @default(false)
-  product       Product?   @relation(fields: [productId], references: [productId])
-  categoryId    Int?
-  catogory      Category?  @relation(fields: [categoryId], references: [categoryId])
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime? @updatedAt
+  metaId     Int       @id @default(autoincrement())
+  productId  Int?
+  imageUrl   String
+  isDeleted  Boolean   @default(false)
+  product    Product?  @relation(fields: [productId], references: [productId])
+  categoryId Int?
+  catogories   Category? @relation(fields: [categoryId], references: [categoryId])
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime? @updatedAt
 }
 
 model Category {
@@ -44,7 +44,7 @@ model Category {
   name          String
   isDeleted     Boolean       @default(false)
   subCategories SubCategory[]
-  product       Product[]
+  products       Product[]
   meta          meta[]
   createdAt     DateTime      @default(now())
   updatedAt     DateTime?     @updatedAt
