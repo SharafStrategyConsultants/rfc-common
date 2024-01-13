@@ -44,7 +44,7 @@ model Category {
   name          String
   isDeleted     Boolean       @default(false)
   subCategories SubCategory[]
-  products       Product[]
+  products      Product[]
   meta          meta[]
   createdAt     DateTime      @default(now())
   updatedAt     DateTime?     @updatedAt
