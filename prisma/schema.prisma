@@ -95,8 +95,8 @@ model UserLogin {
 
 model Cart {
   cartId    Int     @id @default(autoincrement())
-  userId    Int
-  user      User    @relation(fields: [userId], references: [userId])
+  userId    Int?
+  user      User?    @relation(fields: [userId], references: [userId])
   cartItems CartItem[]
 }
 model CartItem {
