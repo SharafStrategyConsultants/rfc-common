@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Product {
-  productId   Int       @id @default(autoincrement())
+  productId   Int        @id @default(autoincrement())
   name        String
   description String
   listPrice   String
@@ -20,12 +20,12 @@ model Product {
   qty         Int
   tag         String
   sku         Int
-  isDeleted   Boolean   @default(false)
+  isDeleted   Boolean    @default(false)
   meta        meta[]
-  category    Category  @relation(fields: [categoryId], references: [categoryId])
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime? @updatedAt
-  items       CartItem[]
+  category    Category   @relation(fields: [categoryId], references: [categoryId])
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime?  @updatedAt
+  cartItems   CartItem[]
 }
 
 model meta {
@@ -94,16 +94,17 @@ model UserLogin {
 }
 
 model Cart {
-  cartId    Int     @id @default(autoincrement())
+  cartId    Int        @id @default(autoincrement())
   userId    Int?
-  user      User?    @relation(fields: [userId], references: [userId])
+  user      User?      @relation(fields: [userId], references: [userId])
   cartItems CartItem[]
 }
+
 model CartItem {
-  cartId    Int
-  productId Int
-  quantity  Int
-  cart      Cart      @relation(fields: [cartId], references: [cartId])
-  product   Product   @relation(fields: [productId], references: [productId])
-  @@id([cartId, productId])
+  cartItemId Int     @id() @default(autoincrement())
+  cartId     Int
+  productId  Int
+  quantity   Int
+  cart       Cart    @relation(fields: [cartId], references: [cartId])
+  product    Product @relation(fields: [productId], references: [productId])
 }
