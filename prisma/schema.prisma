@@ -14,8 +14,8 @@ model Product {
   productId   Int        @id @default(autoincrement())
   name        String
   description String
-  listPrice   String
-  salePrice   String
+  listPrice   Int
+  salePrice   Int
   categoryId  Int?
   qty         Int
   tag         String
