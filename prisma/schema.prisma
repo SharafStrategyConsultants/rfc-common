@@ -16,13 +16,13 @@ model Product {
   description String
   listPrice   String
   salePrice   String
-  categoryId  Int
+  categoryId  Int?
   qty         Int
   tag         String
   sku         Int
   isDeleted   Boolean    @default(false)
   meta        meta[]
-  category    Category   @relation(fields: [categoryId], references: [categoryId])
+  category    Category?   @relation(fields: [categoryId], references: [categoryId])
   createdAt   DateTime   @default(now())
   updatedAt   DateTime?  @updatedAt
   cartItems   CartItem[]
