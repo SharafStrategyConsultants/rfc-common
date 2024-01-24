@@ -111,7 +111,7 @@ model CartItem {
   product   Product   @relation(fields: [productId], references: [productId])
   couponId  Int?
   coupon    Coupon?   @relation(fields: [couponId], references: [couponId])
-  ordered   Boolean   @default(false)
+  ordered   Boolean   
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
 
