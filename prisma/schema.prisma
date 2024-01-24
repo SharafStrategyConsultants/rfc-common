@@ -142,9 +142,10 @@ model Coupon {
 }
 
 model CouponUser {
-  couponUserId Int    @id @default(autoincrement())
-  couponId     Int
-  coupons      Coupon @relation(fields: [couponId], references: [couponId])
-  userId       Int
-  user         User   @relation(fields: [userId], references: [userId])
+  couponId Int
+  coupons  Coupon @relation(fields: [couponId], references: [couponId])
+  userId   Int
+  user     User   @relation(fields: [userId], references: [userId])
+
+  @@id([userId, couponId])
 }
