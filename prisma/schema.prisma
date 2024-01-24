@@ -127,17 +127,18 @@ model Discount {
 }
 
 model Coupon {
-  couponId    Int          @id @default(autoincrement())
-  couponName  String
-  couponCode  String       @unique
-  discountId  Int?
-  discount    Discount?    @relation(fields: [discountId], references: [discountId])
-  coupons     CartItem[]
-  couponUsers CouponUser[]
-  startAt     DateTime
-  endAt       DateTime
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime?    @updatedAt
+  couponId      Int          @id @default(autoincrement())
+  couponName    String
+  couponCode    String       @unique
+  discountId    Int?
+  discount      Discount?    @relation(fields: [discountId], references: [discountId])
+  coupons       CartItem[]
+  couponUsers   CouponUser[]
+  startAt       DateTime
+  endAt         DateTime
+  numberOfUsers Int
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime?    @updatedAt
 }
 
 model CouponUser {
