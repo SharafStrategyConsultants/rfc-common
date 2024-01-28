@@ -137,8 +137,6 @@ model Coupon {
   startAt       DateTime
   endAt         DateTime
   numberOfUsers Int
-  active        Boolean 
-  score         Int
   createdAt     DateTime     @default(now())
   updatedAt     DateTime?    @updatedAt
 }
