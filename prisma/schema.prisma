@@ -146,10 +146,12 @@ model Coupon {
 }
 
 model CouponUser {
-  couponId Int
-  coupons  Coupon @relation(fields: [couponId], references: [couponId])
-  userId   Int
-  user     User   @relation(fields: [userId], references: [userId])
+  couponId  Int
+  coupons   Coupon    @relation(fields: [couponId], references: [couponId])
+  userId    Int
+  user      User      @relation(fields: [userId], references: [userId])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
 
   @@id([userId, couponId])
 }
@@ -187,8 +189,11 @@ model OrderItem {
   quantity  Int
   unitPrice Decimal
   total     Decimal
-  order     Order   @relation(fields: [orderId], references: [orderId])
-  product   Product @relation(fields: [productId], references: [productId])
+  order     Order     @relation(fields: [orderId], references: [orderId])
+  product   Product   @relation(fields: [productId], references: [productId])
+  discount  Decimal
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
 
   @@id([orderId, productId])
 }
