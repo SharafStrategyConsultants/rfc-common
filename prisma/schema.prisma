@@ -37,6 +37,8 @@ model meta {
   product    Product?  @relation(fields: [productId], references: [productId])
   categoryId Int?
   catogory   Category? @relation(fields: [categoryId], references: [categoryId])
+  couponId   Int?
+  coupon     Coupon?   @relation(fields: [couponId], references: [couponId])
   createdAt  DateTime  @default(now())
   updatedAt  DateTime? @updatedAt
 }
@@ -141,6 +143,7 @@ model Coupon {
   numberOfUsers Int
   active        Boolean
   score         Int
+  meta          meta[]
   createdAt     DateTime     @default(now())
   updatedAt     DateTime?    @updatedAt
 }
