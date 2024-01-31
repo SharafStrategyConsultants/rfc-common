@@ -173,12 +173,20 @@ enum PaymentMethods {
   UPI
 }
 
+enum OrderType {
+  CASH_ON_DELIVERY
+  PICKUP
+  DINE_IN
+  DRIVE_THRU
+}
+
 model Order {
   orderId         Int            @id() @default(autoincrement())
   userId          Int
   user            User           @relation(fields: [userId], references: [userId])
   status          OrderStaus
   paymentMethod   PaymentMethods
+  orderType       OrderType
   totalCost       Decimal
   shippingAddress String
   createdAt       DateTime       @default(now())
