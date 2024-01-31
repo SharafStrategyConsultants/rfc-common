@@ -43,6 +43,21 @@ model meta {
   updatedAt  DateTime? @updatedAt
 }
 
+model Address {
+  addressId Int       @id
+  address   String
+  city      String
+  district  String
+  state     String
+  country   String
+  userId    Int?
+  user      User?     @relation(fields: [userId], references: [userId])
+  orderId   Int?
+  order     Order?    @relation(fields: [orderId], references: [orderId])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
 model Category {
   categoryId    Int           @id @default(autoincrement())
   name          String
@@ -75,6 +90,7 @@ model User {
   cart        Cart[]
   couponUsers CouponUser[]
   orders      Order[]
+  addresses   Address[]
   token       String       @unique
   createdAt   DateTime     @default(now())
   updatedAt   DateTime?    @updatedAt
@@ -189,9 +205,10 @@ model Order {
   orderType       OrderType
   totalCost       Decimal
   shippingAddress String
+  OrderItem       OrderItem[]
+  addresses       Address[]
   createdAt       DateTime       @default(now())
   updatedAt       DateTime?      @updatedAt
-  OrderItem       OrderItem[]
 }
 
 model OrderItem {
