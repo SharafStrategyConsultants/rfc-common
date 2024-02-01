@@ -86,7 +86,7 @@ model User {
   lastName    String?      @default("")
   email       String       @unique
   password    String?      @default("")
-  phone       String
+  phone       String       @unique
   userLogings UserLogin[]
   cart        Cart[]
   couponUsers CouponUser[]
