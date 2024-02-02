@@ -191,7 +191,7 @@ enum PaymentMethods {
 }
 
 enum OrderType {
-  CASH_ON_DELIVERY
+  DELIVERY
   PICKUP
   DINE_IN
   DRIVE_THRU
