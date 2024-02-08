@@ -204,6 +204,7 @@ model Order {
   paymentMethod PaymentMethods
   orderType     OrderType
   totalCost     Decimal
+  totalItem     Int             @default(0)
   OrderItem     OrderItem[]
   addresses     OrderAddress[]
   createdAt     DateTime       @default(now())
