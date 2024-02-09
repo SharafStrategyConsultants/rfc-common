@@ -177,6 +177,7 @@ model CouponUser {
 
 enum OrderStaus {
   PENDING
+  PREPARING
   SHIPPED
   DELIVERED
   CANCELED
